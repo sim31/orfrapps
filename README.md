@@ -1,13 +1,14 @@
 # ORDAO Fractal Apps (ORFrapps)
 
-Configuration and scripts for deployment and maintenance of [ORDAO](https://github.com/sim31/ordao) instances for [Fractal communities](https://optimystics.io/blog/fractalhistory).
+Configuration and scripts for deployment and maintenance of [ORDAO](./ordao/) instances for [Fractal communities](./fractals/).
 
 This repository contains:
-- Configuration files for [ORDAO](https://github.com/sim31/ordao) instances
+- Configuration files for [ORDAO](./ordao/) instances
 - Deployment scripts
 - Documentation
-- Command-line tools for configuration, deployment, and maintenance of [ORDAO](https://github.com/sim31/ordao)
+- Command-line tools for configuration, deployment, and maintenance of [ORDAO](./ordao/)
 
+Code for ORDAO itself is hosted at https://github.com/sim31/ordao and used here as [submodule](./ordao/).
 
 ## Table of Contents
 
