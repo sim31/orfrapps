@@ -202,7 +202,7 @@ Follow the prompts to configure HTTPS.
 npm install -g pm2
 
 # Start ornode
-npx pm2 start proc/<your-frapp-id>/ornode.pm2.json
+npx pm2 start dist/proc/<your-frapp-id>/ornode.pm2.json
 
 # Check status
 npx pm2 status
@@ -231,6 +231,11 @@ orfrapps gui <your-frapp-id> -a --domain <your-domain>
 **Output:**
 - GUI build in `ordao/apps/gui/builds/<frapp-id>/`
 - Nginx config in `sites/<subdomain>.<domain>`
+
+```bash
+# Reload nginx
+sudo nginx -s reload
+```
 
 ### 11. Verify Deployment
 

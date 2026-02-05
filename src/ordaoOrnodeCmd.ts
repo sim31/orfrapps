@@ -127,9 +127,9 @@ function createOrnodeSite(frapp: OrdaoFrappFull, domain: string) {
     const hostname = url.hostname;
     // Remove top-level domain to get subdomain
     const parts = hostname.split('.');
-    const subdomain = parts.length > 1 ? parts.slice(0, -1).join('.') : parts[0];
+    const subdomain = parts[0];
     if (!siteNames.includes(subdomain)) {
-      throw new Error(`Ornode origin specified and its subdomain ${subdomain} not in frapp subdomains`);      
+      throw new Error(`Ornode origin specified and its subdomain ${subdomain} not in frapp subdomains. Subdomains: ${siteNames}`);      
     }
   }
   createProxySite(procAddr, domain, siteNames);
