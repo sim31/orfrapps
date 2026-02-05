@@ -1,0 +1,13 @@
+{
+  "Orec": {
+    "oldRespectAddr": "0xa3E495f17590946e53fa5F3C1497EF1367F230fA",
+    "votePeriod": 259200,
+    "vetoPeriod": 259200,
+    "voteThreshold": 200,
+    "maxLiveYesVotes": 6
+  },
+  "OrdaoNew": {
+    "uri": "https://kfmedia-ornode.frapps.xyz/v1/token/{id}",
+    "contractURI": "https://kfmedia-ornode.frapps.xyz/v1/respectContractMetadata"
+  }
+}

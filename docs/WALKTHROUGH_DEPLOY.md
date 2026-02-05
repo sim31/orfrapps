@@ -43,7 +43,55 @@ source ./orfrapps-alias
 - Builds ORDAO components
 - Creates the `orfrapps` command alias (so you can use `orfrapps ...` commands in your terminal)
 
-### 2. Create Local Configuration
+### 2. Configure Contract Deployment
+
+Create `.env` file in `contracts/` directory:
+
+```bash
+cd contracts
+cp .env.example .env
+```
+
+Edit `.env` and add:
+
+```env
+# For Base mainnet
+BASE_RPC_URL=https://base-mainnet.g.alchemy.com/v2/YOUR_API_KEY
+BASE_PRIVATE_KEY=your_private_key_here
+
+# For Base Sepolia testnet
+BASE_SEPOLIA_RPC_URL=https://base-sepolia.g.alchemy.com/v2/YOUR_API_KEY
+BASE_SEPOLIA_PRIVATE_KEY=your_private_key_here
+```
+
+**Security warning:** Never commit `.env` file or share private keys!
+
+### 3. Deploy Smart Contracts
+
+```bash
+# From repository root
+orfrapps contracts <your-frapp-id> -a
+```
+
+**What this does:**
+1. Builds contracts
+2. Generates deployment parameters for Hardhat ignition (configuration)
+3. Deploys contracts via Hardhat Ignition
+4. Verifies contracts on block explorer
+5. Outputs deployment addresses to `dist/deployments/<frapp-id>.json`
+
+**Expected output:**
+```
+Wrote ignition config: contracts/ignition/<frapp-id>.json
+Deploying contracts...
+Wrote deployment info: dist/deployments/<frapp-id>.json
+```
+
+**Time estimate:** 1-5 minutes
+
+### 4. Create Local Configuration
+
+*Note: this and subsequent steps should be performed on your server.*
 
 Create `fractals/<your-frapp-id>/frapp.local.json`:
 
@@ -84,51 +132,6 @@ Create `fractals/<your-frapp-id>/frapp.local.json`:
   - Each frapp needs unique port
   - Default: 8090, increment for multiple frapps (8091, 8092, etc.)
 
-### 3. Configure Contract Deployment
-
-Create `.env` file in `contracts/` directory:
-
-```bash
-cd contracts
-cp .env.example .env
-```
-
-Edit `.env` and add:
-
-```env
-# For Base mainnet
-BASE_RPC_URL=https://base-mainnet.g.alchemy.com/v2/YOUR_API_KEY
-BASE_PRIVATE_KEY=your_private_key_here
-
-# For Base Sepolia testnet
-BASE_SEPOLIA_RPC_URL=https://base-sepolia.g.alchemy.com/v2/YOUR_API_KEY
-BASE_SEPOLIA_PRIVATE_KEY=your_private_key_here
-```
-
-**Security warning:** Never commit `.env` file or share private keys!
-
-### 4. Deploy Smart Contracts
-
-```bash
-# From repository root
-orfrapps contracts <your-frapp-id> -a
-```
-
-**What this does:**
-1. Builds contracts
-2. Generates deployment parameters for Hardhat ignition (configuration)
-3. Deploys contracts via Hardhat Ignition
-4. Verifies contracts on block explorer
-5. Outputs deployment addresses to `dist/deployments/<frapp-id>.json`
-
-**Expected output:**
-```
-Wrote ignition config: contracts/ignition/<frapp-id>.json
-Deploying contracts...
-Wrote deployment info: dist/deployments/<frapp-id>.json
-```
-
-**Time estimate:** 1-5 minutes
 
 ### 5. Configure and Build Ornode
 

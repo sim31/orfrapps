@@ -1,0 +1,45 @@
+{
+  "id": "kfmedia",
+  "fullName": "KFMEDIA℠",
+  "frappsSubdomains": ["kfmedia"],
+  "deploymentCfg": {
+    "network": "base",
+    "module": "OrdaoNew",
+    "oldRespectAddr": "0xa3E495f17590946e53fa5F3C1497EF1367F230fA",
+    "votePeriod": 259200,
+    "vetoPeriod": 259200,
+    "voteThreshold": 200,
+    "maxLiveYesVotes": 6,
+    "ornodeOrigin": "https://kfmedia-ornode.frapps.xyz"
+  },
+  "app": {
+    "appId": "ordao",
+    "startPeriodNum": 0,
+    "parentRespectLink": "https://...",
+    "childRespectLink": "https://...",
+    "respectGameLink": "https://respect-game.vercel.app",
+    "fractalDocsUrl": "https://...",
+    "respect": {
+      "award": {
+        "name": "KFMEDIA℠ Respect Award",
+        "description": "Respect award for contributions",
+        "image": "https://d391b93f5f62d9c15f67142e43841acc.ipfscdn.io/ipfs/bafybeie37wuq2n3bp7dley76dj5mnoxiiwo7h2gdleqb6oeuapbv64pcoa/KFMEDIA%201of1.png"
+      },
+      "fungible": {
+        "name": "KFMEDIA℠ Respect",
+        "description": "Respect score for contributions",
+        "image": "https://d391b93f5f62d9c15f67142e43841acc.ipfscdn.io/ipfs/bafybeie37wuq2n3bp7dley76dj5mnoxiiwo7h2gdleqb6oeuapbv64pcoa/KFMEDIA%201of1.png",
+        "decimals": 0
+      },
+      "contract": {
+        "name": "KFMEDIA℠ Respect",
+        "symbol": "KFMR",
+        "description": "Awards for contributions",
+        "image": "https://d391b93f5f62d9c15f67142e43841acc.ipfscdn.io/ipfs/bafybeie37wuq2n3bp7dley76dj5mnoxiiwo7h2gdleqb6oeuapbv64pcoa/KFMEDIA%201of1.png",
+        "banner_image": "https://d391b93f5f62d9c15f67142e43841acc.ipfscdn.io/ipfs/bafybeie37wuq2n3bp7dley76dj5mnoxiiwo7h2gdleqb6oeuapbv64pcoa/KFMEDIA%201of1.png",
+        "featured_image": "https://d391b93f5f62d9c15f67142e43841acc.ipfscdn.io/ipfs/bafybeie37wuq2n3bp7dley76dj5mnoxiiwo7h2gdleqb6oeuapbv64pcoa/KFMEDIA%201of1.png",
+        "external_link": "https://kfmedia.frapps.xyz"
+      }
+    }
+  }
+}
