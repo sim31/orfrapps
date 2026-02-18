@@ -74,7 +74,6 @@ orfrapps ornode [targets...] [options]
 - `-c, --config` - Configure ornode instances
 - `-s, --config-sites` - Configure nginx server blocks
 - `-p, --config-process` - Create PM2 process configuration
-- `-d, --db-backup` - Backup ornode database
 - `-e, --export [img-dir-url]` - Export ornode database
 - `-a, --all` - Shorthand for `-lbcsp`
 
@@ -168,6 +167,29 @@ orfrapps orclient-docs -a
 
 ---
 
+### `orfrapps ornode-backup`
+
+Backup the entire ornode MongoDB database using `mongodump`.
+
+```bash
+orfrapps ornode-backup
+```
+
+**Environment variables required:**
+- `BACKUP_DIR` - Directory where the backup file will be written
+- `MONGO_DUMP_URI` - MongoDB connection string
+
+**Example:**
+```bash
+# Backup ornode database
+BACKUP_DIR=/var/backups/ornode MONGO_DUMP_URI=mongodb://localhost:27017 orfrapps ornode-backup
+```
+
+**Output:**
+- Backup written to `$BACKUP_DIR/<timestamp>.bson`
+
+---
+
 ### `orfrapps ornode-sync <from-block> <to-block> [targets...]`
 
 Synchronize ornode with blockchain events. Queries for relevant blockchain events in specified block range. Use when some blockchain events were missed.
@@ -246,6 +268,43 @@ orfrapps parent-deploy <target> <network> [options]
 # Deploy parent respect distribution to Base
 orfrapps parent-deploy ef2 base -a
 ```
+
+---
+
+### `orfrapps check-awards [targets...]`
+
+Check consistency between on-chain Respect mint events and awards stored in the ornode database. Outputs discrepancies grouped by period.
+
+```bash
+orfrapps check-awards [targets...] [options]
+```
+
+**Arguments:**
+- `targets` - Frapp IDs to check (default: `all`)
+
+**Options:**
+- `-f, --from-block <from-block>` - Starting block number (default: `0`)
+- `-t, --to-block <to-block>` - Ending block number (default: `latest`)
+- `-s, --step-range <step-range>` - Block range per query step (default: `50000`)
+- `-r, --rpc-url <rpc-url>` - Override RPC URL
+
+**Examples:**
+
+```bash
+# Check all frapps from genesis
+orfrapps check-awards
+
+# Check specific frapp from a recent block
+orfrapps check-awards ef2 -f 12345678
+
+# Check with a custom RPC endpoint
+orfrapps check-awards ef2 -r https://mainnet.optimism.io
+```
+
+**Output:**
+- On-chain `totalRespect()` vs DB active awards denomination sum (flags mismatches)
+- On-chain mints not present in DB, grouped by period with token IDs and tx hashes
+- DB awards with no corresponding on-chain mint event
 
 ---
 

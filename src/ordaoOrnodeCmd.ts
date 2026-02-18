@@ -31,7 +31,6 @@ export const ordaoOrnodeCmd = new Command("ornode")
   .option("-c, --config", "configure ornode instances")
   .option("-s, --config-sites", "configure nginx server blocks to serve ornode(s)")
   .option("-p, --config-process", "create pm2 start options for ornode instances")
-  .option("-d, --db-backup", "backup ornode db")
   .option("-e, --export [img-dir-url]", "export ornode db")
   .option("-a, --all", "shorthand for -lbcsp")
   .showHelpAfterError()
@@ -50,7 +49,6 @@ export const ordaoOrnodeCmd = new Command("ornode")
     const config = opts.all || opts.config;
     const configSites = opts.all || opts.configSites;
     const configProc = opts.all || opts.configProcess;
-    const dbBackup = opts.dbBackup;
     const exprt = opts.export;
     const domain = opts.domain;
 
@@ -65,11 +63,6 @@ export const ordaoOrnodeCmd = new Command("ornode")
       console.log("Building ornode");
       exec("npm run build", { cwd: ordaoDir });
     }
-    if (dbBackup) {
-      console.log("Backing up ornode db");
-      backup();
-    }
-
     // Commands for specific frapps
     for (const frapp of frapps) {
       console.log("frapp: ", frapp);
@@ -156,16 +149,6 @@ function createProcCfg(frapp: OrdaoFrapp) {
   console.log("Start: ", `npx pm2 start ${p}`);
 }
 
-function backup() {
-  const backupDir = process.env.BACKUP_DIR;
-  const uri = process.env.MONGO_DUMP_URI;
-
-  const outFile = `${backupDir}/${Date.now()}.bson`
-
-  const cmd = `mongodump --archive=${outFile} ${uri}`
-
-  exec(cmd)
-}
 
 interface ParseRes {
   filename: string;
