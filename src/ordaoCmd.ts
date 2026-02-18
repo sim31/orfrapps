@@ -6,6 +6,7 @@ import { ordaoGuiCmd } from "./ordaoGuiCmd.js";
 import { ordaoOrnodeSyncCmd } from "./ordaoOrnodeSyncCmd.js";
 import { ordaoRSplitsCmd } from "./ordaoRSplit.js";
 import { ordaoParentDeployCmd } from "./ordaoParentDeployCmd.js";
+import { ordaoCheckAwardsCmd } from "./ordaoCheckAwardsCmd.js";
 
 export const ordaoCommands: Command[] = [
   ordaoContractsCmd,
@@ -15,4 +16,5 @@ export const ordaoCommands: Command[] = [
   ordaoOrnodeSyncCmd,
   ordaoRSplitsCmd,
   ordaoParentDeployCmd,
+  ordaoCheckAwardsCmd,
 ];

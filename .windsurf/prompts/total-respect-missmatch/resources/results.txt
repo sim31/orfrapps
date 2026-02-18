@@ -1,0 +1,27 @@
+--- Results ---
+On-chain totalRespect(): 3821
+DB active awards denomination sum: 3690
+  ⚠ MISMATCH: on-chain totalRespect - DB active sum = 131
+
+Matched token IDs: 138
+
+⚠ ON-CHAIN MINTS NOT IN DB (5):
+  Total denomination of missing awards: 131
+
+  Period 57 (5 mints, total denom: 131):
+    tokenId: 0x000000000000000000000039c0f0e1512d6a0a77ff7b9c172405d1b0d73565bf
+      recipient: 0xc0f0e1512d6a0a77ff7b9c172405d1b0d73565bf, denomination: 55, mintType: 0
+      tx: 0x60aad2cb3e412feabf241c5100c5bcb4870ac4344c0c7353e79172321f45ba52 (block 133311165)
+    tokenId: 0x000000000000000000000039e96460c80a18427c5aefce946173698953fd054c
+      recipient: 0xe96460c80a18427c5aefce946173698953fd054c, denomination: 34, mintType: 0
+      tx: 0x60aad2cb3e412feabf241c5100c5bcb4870ac4344c0c7353e79172321f45ba52 (block 133311165)
+    tokenId: 0x000000000000000000000039c11c6f47fe090a706ba82964b8a98f1682b244ff
+      recipient: 0xc11c6f47fe090a706ba82964b8a98f1682b244ff, denomination: 21, mintType: 0
+      tx: 0x60aad2cb3e412feabf241c5100c5bcb4870ac4344c0c7353e79172321f45ba52 (block 133311165)
+    tokenId: 0x0000000000000000000000397f985b1764f79faa42a4622bb605b23c8eb5abea
+      recipient: 0x7f985b1764f79faa42a4622bb605b23c8eb5abea, denomination: 13, mintType: 0
+      tx: 0x60aad2cb3e412feabf241c5100c5bcb4870ac4344c0c7353e79172321f45ba52 (block 133311165)
+    tokenId: 0x000000000000000000000039f6e9b8d1877ea00f7b72f682fa15906d6a9f4693
+      recipient: 0xf6e9b8d1877ea00f7b72f682fa15906d6a9f4693, denomination: 8, mintType: 0
+      tx: 0x60aad2cb3e412feabf241c5100c5bcb4870ac4344c0c7353e79172321f45ba52 (block 133311165)
+✓ All DB awards have corresponding on-chain events
